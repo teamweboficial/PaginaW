@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <section class="header">
+  <div class="logo"><img src="img/cup4.png" width="auto" height="100px" alt=""></div>
+
+  <!-- Cambiado id de 'hamburger' a 'menuBtn' -->
+  <div class="hamburger" id="menuBtn">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <nav class="menu" id="menu">
+    <a href="../index.html">Inicio</a>
+    <a href="../productos/Index.html">Productos</a>
+    <a href="index.html">Contáctanos</a>
+    <a href="../pagar/Index.html">Pagar</a>
+  </nav>
+</section>
+
+
+ <div class="container">
+    <h1>Contacto</h1>
+    <form id="contact-form">
+      <input type="text" name="nombre" placeholder="Tu nombre" required />
+      <input type="email" name="email" placeholder="Tu correo electrónico" required />
+      <textarea name="mensaje" placeholder="Tu mensaje" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+
+
+
+
+
+
+
+<section class="footer">
+        <p>© </span> Team Web. Todos los derechos reservados.</p>
+      </section>
+
+
+
+
+
+
+
+<script>const menuBtn = document.getElementById('menuBtn');
+  const menu = document.getElementById('menu');
+
+  menuBtn.addEventListener('click', () => {
+    menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+  });
+
+  // Cierra el menú si haces clic fuera (solo en móvil)
+  document.addEventListener('click', function(e) {
+    if (!menu.contains(e.target) && !menuBtn.contains(e.target)) {
+      if (window.innerWidth < 768) {
+        menu.style.display = 'none';
+      }
+    }
+  });
+
+  // Al cambiar tamaño de ventana, ajusta el menú correctamente
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768) {
+      menu.style.display = 'flex';
+    } else {
+      menu.style.display = 'none';
+    }
+  });
+
+  // Inicializa el estado correcto al cargar
+  window.addEventListener('load', () => {
+    if (window.innerWidth >= 768) {
+      menu.style.display = 'flex';
+    } else {
+      menu.style.display = 'none';
+    }
+  });</script>
+
+
+
+
+
+
+<script>
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Mensaje enviado correctamente (simulado).');
+      this.reset();
+    });
+  </script>
+
+
+
+
+
+
+ <script src="script.js"></script>
+</body>
+</html>

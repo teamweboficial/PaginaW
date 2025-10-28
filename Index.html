@@ -1,0 +1,311 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/test00.png" sizes="8x8" type="img/png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Poppins&display=swap" rel="stylesheet">
+    
+
+    <title>Document</title>
+
+    <style>
+        body{ background-color: white;
+            
+        }
+    </style>
+</head>
+<body>
+
+
+  
+    
+    <section class="encabezado">
+      <div class="logo">
+        <img src="img/t2.jpg" alt="Logo">
+      </div>
+      <nav class="menu">
+        <a href="index.html">Inicio</a>
+    <a href="desarrollo pag/index.html">Portafolio</a>
+    <a href="servicios pag/index.html">Servicios</a>
+    <a href="contacto pag/index.html">Contacto</a>
+      </nav>
+    </section>
+
+     
+
+      <section class="image-slider">
+        <div class="slider-wrapper">
+          <img src="img/pt1.jpg" class="slide active">
+          <img src="img/pt2.jpg" class="slide">
+          <img src="img/pt3.jpg" class="slide">
+        </div>
+        <div class="indicators">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      </section>
+
+
+
+
+      
+
+<section class="layout-section">
+  <div class="top-row">
+   
+    <div class="box square top-left animate-tilt">
+      <div class="image-container">
+        <img src="img/3i.jpg" alt="Innovación">
+      </div>
+    </div>
+
+    <!-- Rectángulo con texto llamativo -->
+    <div class="box rectangle top-right glass-effect">
+      <div class="overlay-text">
+        <h1 class="title-gradient">¿Por qué elegirnos?</h1>
+        <p>
+          Creamos páginas web <strong>impactantes</strong> y <strong>funcionales</strong> que harán
+          crecer tu negocio. Entregas rápidas, diseños únicos y optimización total para tus clientes.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-row">
+    <!-- Rectángulo con lista -->
+    <div class="box rectangle bottom-left glass-effect">
+      <div class="overlay-text">
+        <h1 class="title-gradient">Lo que obtienes</h1>
+        <ul>
+          <li>Diseño 100% a medida.</li>
+          <li>Optimización SEO y velocidad.</li>
+          <li>Soporte y mantenimiento continuo.</li>
+          <li>Responsive en todos los dispositivos.</li>
+          <li>Experiencia de usuario impecable.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Cuadro con gif -->
+    <div class="box square bottom-right animate-tilt">
+      <div class="image-container">
+        <img src="img/5i (1).jpg" alt="Resultados">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Estos son los que se tienen que deslizar -->
+
+      
+    
+      <div class="scroll-section" id="horizontalScrollSection">
+        <div class="horizontal-wrapper" id="horizontalWrapper">
+          <section class="horizontal-slide">
+            <div class="content">
+              <h2 class="fade-slide">Diseños que inspiran confianza</h2>
+<p class="fade-slide">Transmitimos profesionalismo con sitios modernos y fáciles de navegar.</p>
+            </div>
+          </section>
+          <section class="horizontal-slide">
+            <div class="content">
+              <h2 class="fade-slide">Convierte visitas en clientes</h2>
+<p class="fade-slide">Cada página está pensada para captar la atención y generar resultados.</p>
+            </div>
+          </section>
+          <section class="horizontal-slide">
+            <div class="content">
+              <h2 class="fade-slide">Crece sin límites</h2>
+              <p class="fade-slide">Desde una página informativa hasta una tienda en línea completa: escalamos contigo.</p>
+            </div>
+          </section>
+        </div>
+      </div>
+
+
+  
+
+
+
+
+      <section class="seccion-portafolio">
+  <h2>Descubre Nuestro Portafolio</h2>
+  <a href="desarrollo pag/index.html" class="boton-portafolio">
+    <span>Descubre más aquí</span>
+  </a>
+</section>
+
+
+ <style>
+
+
+.seccion-portafolio {
+  text-align: center;
+  padding: 150px 20px;
+  background: #f5f5f5;
+}
+
+.seccion-portafolio h2 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 50px;
+}
+
+/* Botón animado */
+.boton-portafolio {
+  position: relative;
+  display: inline-block;
+  padding: 18px 40px;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  overflow: hidden;
+  background: linear-gradient(90deg, #e7cf00, #d6bf00);
+  transition: transform 0.3s ease;
+  color: #000;
+}
+
+/* Borde animado */
+.boton-portafolio::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(#fff, transparent, #fff, transparent);
+  animation: girarBorde 4s linear infinite;
+  z-index: 0;
+}
+
+/* Fondo interno */
+.boton-portafolio::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  background: linear-gradient(90deg, #e7cf00, #d6bf00);
+  border-radius: 6px;
+  z-index: 1;
+}
+
+/* Texto visible por encima */
+.boton-portafolio span {
+  position: relative;
+  z-index: 2;
+}
+
+/* Hover */
+.boton-portafolio:hover {
+  transform: scale(1.08);
+}
+
+@keyframes girarBorde {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Adaptativo */
+@media (max-width: 768px) {
+  .seccion-portafolio {
+    padding: 100px 15px;
+  }
+  .seccion-portafolio h2 {
+    font-size: 24px;
+  }
+  .boton-portafolio {
+    font-size: 16px;
+    padding: 16px 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .seccion-portafolio {
+    padding: 80px 10px;
+  }
+  .seccion-portafolio h2 {
+    font-size: 20px;
+  }
+  .boton-portafolio {
+    font-size: 14px;
+    padding: 14px 24px;
+  }
+}
+
+
+
+
+ </style>
+
+      
+
+
+
+        
+
+
+
+    <!-- esto es el contactanos -->
+
+    <section class="roll">
+      <div class="overlay">
+        <h1>¡No pierdas más tiempo!</h1>
+        <p>Da el primer paso para mejorar tu presencia online y llevar tu negocio al siguiente nivel.
+          Contáctanos hoy mismo para una consulta gratuita y empieza a crear la web que tu negocio merece.</p>
+
+
+          <a href="contacto pag/index.html" class="boton">Ver más</a>
+      </div>
+    </section>
+
+        
+
+        
+      
+      
+      
+      <!-- Esto es el pie de pagina -->
+
+      <section class="footer">
+        <p>© </span> Team Web. Todos los derechos reservados.</p>
+      </section>
+      
+      
+
+
+      
+
+
+      
+      
+      <script src="script/script.js"></script>
+</body>
+</html>
+
+
+
+

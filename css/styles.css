@@ -1,0 +1,536 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ 
+  max-width: 100vw; 
+  }
+
+
+body {
+    font-family: 'Poppins', sans-serif; /* Texto normal */
+    overflow-x: hidden;
+    
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif; /* Títulos */
+    width: 100%;
+  overflow-x: hidden; 
+  }
+
+/* esto es el encabezado......................................................*/
+.encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #000000
+    ;
+    flex-wrap: wrap;
+  }
+
+  .menu a {
+    color: white; 
+    text-decoration: none; 
+    font-weight: normal; 
+  }
+
+
+  /* Logo */
+  .logo img {
+    height: 100px;
+    width: auto;
+  }
+  
+  /* Menú de palabras */
+  .menu {
+    display: flex;
+    gap: 20px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  /* Adaptabilidad para pantallas pequeñas */
+  @media (max-width: 600px) {
+    .encabezado {
+        
+        flex-direction: row;
+        justify-content: center; /* Centra logo y menú */
+        align-items: center; 
+        gap: 10px;
+        padding: 10px 20px;
+    }
+  
+    .menu {
+      flex-direction: row;
+      gap: 10px;
+      font-size: 16px;
+    }
+
+    .logo img {
+        height: 50px; /* Logo más pequeño en móvil */
+      }
+
+  }
+
+
+
+
+  .menu a.active {
+    color: red;
+  }
+  .menu a:hover,
+  .menu a.active {
+    color: red; /* color para hover y activo */
+  }
+
+
+
+
+
+
+
+
+
+
+
+  /*estas son las imagenes con movimiento.............................................................*/
+
+  .image-slider {
+  width: 100%;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+}
+
+.slider-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.indicators {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #999;
+  transition: background-color 0.3s;
+}
+
+.dot.active {
+  background-color: #333;
+}
+  
+
+@media (max-width: 1100px) {
+    .image-slider {
+      width: 100%; /* Reducimos un poco el ancho en móviles */
+      height: auto; /* Para que no sea tan alto y se ajuste */
+      
+    }
+  
+    .slide {
+      height: auto;
+      width: 100%;
+    }
+
+    .image-slider {
+        aspect-ratio: 4 / 2; /* más cuadradito para móviles */
+      }
+  }
+
+
+
+
+
+/*estos son los cuadrados y rectangulos.....................................................*/
+
+  /* Contenedor general */
+.layout-section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.top-row, .bottom-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Caja base */
+.box {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Cuadrados */
+.square {
+  width: 400px;
+  height: 400px;
+  flex-shrink: 0;
+}
+
+/* Rectángulos */
+.rectangle {
+  flex: 1;
+  min-height: 400px;
+}
+
+/* Contenedor de imagen */
+.image-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1s ease;
+}
+
+.image-container:hover img {
+  transform: scale(1.1) rotate(2deg);
+}
+
+/* Texto con fondo de vidrio */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.overlay-text {
+  padding: 20px;
+  color: black;
+  text-align: left;
+}
+
+.overlay-text ul {
+  padding-left: 20px;
+}
+
+.overlay-text li {
+  margin-bottom: 8px;
+  list-style: none;
+  position: relative;
+}
+
+.overlay-text li::before {
+  content: "✔";
+  color: #0ff;
+  position: absolute;
+  left: -18px;
+}
+
+/* Título con degradado animado */
+.title-gradient {
+  background: linear-gradient(90deg, #00f0ff, #ff00d4, #00f0ff);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradient-move 5s ease infinite;
+}
+
+@keyframes gradient-move {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Animación tilt */
+.animate-tilt {
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.animate-tilt:hover {
+  transform: rotate3d(1, 1, 0, 10deg) scale(1.05);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .top-row, .bottom-row {
+    flex-direction: column;
+  }
+  .square {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+  .rectangle {
+    min-height: 250px;
+  }
+}
+
+ 
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*esto es el cuadrado y rectangulos donde iran los gif........................................................*/
+
+
+
+
+
+
+/*esto es lo que esta encima del contactanos............................................................................................*/
+
+.rectangulo4 {
+  width: 100%; /* Hace que el rectángulo ocupe el 100% del ancho de su contenedor */
+  max-width: 1200px; /* El ancho máximo del rectángulo */
+  margin: 0 auto; /* Centra el rectángulo en su contenedor */
+  padding: 20px;
+  background-color: white; /* Color de fondo del rectángulo */
+  color: black; /* Color del texto */
+  border-radius: 8px; /* Bordes redondeados */
+  box-sizing: border-box; /* Incluye el padding dentro del cálculo del ancho */
+  text-align: center; /* Centra el texto dentro del rectángulo */
+}
+
+@media (max-width: 768px) {
+  .rectangulo4 {
+    padding: 15px; /* Ajusta el padding en pantallas más pequeñas */
+  }
+}
+
+@media (max-width: 480px) {
+  .rectangulo4 {
+    font-size: 14px; /* Cambia el tamaño de la fuente en pantallas pequeñas */
+  }
+}
+
+
+
+
+/*esto es el contactanos y el boton-............................................................................................*/
+
+
+
+.roll {
+  position: relative;
+  height: 100vh;
+  background-image: url('../img/1isin.jpg'); /* Cambia por tu imagen */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* efecto parallax */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  color: white;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 90%;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+
+.boton {
+  display: inline-block;
+  margin-top: 40px;
+  padding: 10px 20px;
+  background-color: #ff5050;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+
+.boton:hover {
+  background-color: #e04343;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+}
+
+
+
+
+
+ /*esto es el pie de pagina......................................................................................................*/
+
+
+
+ .footer {
+    width: 100%;
+    background-color: #222;
+    color: #fff;
+    text-align: center; 
+    font-size: 16px;
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+
+/* Adaptativo para pantallas pequeñas */
+@media (max-width: 600px) {
+    .footer {
+     
+        font-size: 14px;
+        padding: 20px 0;
+        width: 100vw;       /* 100% del viewport real */
+    max-width: 100vw;
+    
+  
+       
+    }
+}
+
+
+
+
+
+
+
+
+
+.scroll-section {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  touch-action: pan-y;
+    
+  
+  
+}
+
+.horizontal-wrapper {
+  display: flex;
+  height: 100%;
+  width: 300vw;
+  transition: transform 0.2s ease-out;
+}
+
+.horizontal-slide {
+  width: 100vw;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  padding: 2rem;
+  color: white;
+}
+
+.horizontal-slide:nth-child(1) {background-image: url('../img/image.png'); }
+.horizontal-slide:nth-child(2) { background-image: url('../img/c.png'); }
+.horizontal-slide:nth-child(3) { background-image: url('../img/ima1.png'); }
+
+.content {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 80%;
+  
+}
+
+
+
+.fade-slide {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-slide.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+p { font-size: 1.2rem; }
+
+@media (max-width: 600px) {
+  .scroll-section {
+    height: 60vh;
+  }
+
+  .horizontal-slide {
+    padding: 1rem;
+  }
+
+  .content {
+    padding: 1rem;
+    max-width: 90%;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
+}

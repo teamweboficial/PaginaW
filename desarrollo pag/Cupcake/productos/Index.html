@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <section class="header">
+  <div class="logo"><img src="img/cup4.png" width="auto" height="100px" alt=""></div>
+
+  <!-- Cambiado id de 'hamburger' a 'menuBtn' -->
+  <div class="hamburger" id="menuBtn">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <nav class="menu" id="menu">
+    <a href="../index.html">Inicio</a>
+    <a href="Index.html">Productos</a>
+    <a href="../contacto/index.html">Contáctanos</a>
+    <a href="../pagar/Index.html">Pagar</a>
+  </nav>
+</section>
+
+
+
+
+
+<section class="rectangulo">
+    <div class="overlay"></div>
+    <div class="contenido">
+      <h1>Productos</h1>
+      <p>Deleitables para toda ocasión y momento</p>
+    </div>
+  </section>
+
+<div id="carrito-container">
+  <button id="ver-carrito" class="carrito-circulo">
+    🛒
+    <span id="contador-carrito">0</span>
+  </button>
+  <div id="carrito" class="carrito">
+    <h3>Carrito de compras</h3>
+    <ul id="lista-carrito"></ul>
+    <p id="total-carrito">Total: $0</p>
+    <button id="cerrar-carrito">Cerrar</button>
+  </div>
+</div>
+
+
+  <section class="contenedor-principal">
+  <div class="contenedor">
+    <!-- Cuadros -->
+    <div class="cuadros" id="cuadros-container"></div>
+
+    <!-- Barra lateral -->
+    <aside class="barra-lateral">
+      <input type="text" id="buscador" placeholder="Buscar...">
+      <ul class="lista-textos">
+        <li>Cupcakes</li>
+        <li>Pasteles</li>
+        <li>Chocolates</li>
+        <li>Cafés</li>
+      </ul>
+    </aside>
+  </div>
+
+  <!-- Paginación -->
+  <div class="paginacion">
+    <button onclick="cambiarPagina(1)">1</button>
+    <button onclick="cambiarPagina(2)">2</button>
+    <button onclick="cambiarPagina(3)">3</button>
+  </div>
+</section>
+
+
+<div id="modal" class="modal">
+  <div class="modal-content" id="modal-content">
+    <span id="cerrar-modal" class="cerrar">&times;</span>
+    <img id="modal-img" src="" alt="">
+    <h2 id="modal-texto"></h2>
+    <p id="modal-precio"></p>
+    <button id="modal-boton">Agregar al carrito</button>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<section class="footer">
+        <p>© </span> Team Web. Todos los derechos reservados.</p>
+      </section>
+
+
+<script src="script/script.js"></script>
+    
+</body>
+</html>

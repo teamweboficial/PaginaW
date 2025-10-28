@@ -1,0 +1,242 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ 
+  max-width: 100vw; 
+  }
+
+
+body {
+    font-family: 'Poppins', sans-serif; /* Texto normal */
+    overflow-x: hidden;
+    
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif; /* Títulos */
+    width: 100%;
+  overflow-x: hidden; 
+  }
+
+/* esto es el encabezado......................................................*/
+.encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #000000
+    ;
+    flex-wrap: wrap;
+  }
+
+  .menu a {
+    color: white; 
+    text-decoration: none; 
+    font-weight: normal; 
+  }
+
+
+  /* Logo */
+  .logo img {
+    height: 100px;
+    width: auto;
+  }
+  
+  /* Menú de palabras */
+  .menu {
+    display: flex;
+    gap: 20px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  /* Adaptabilidad para pantallas pequeñas */
+  @media (max-width: 600px) {
+    .encabezado {
+        
+        flex-direction: row;
+        justify-content: center; /* Centra logo y menú */
+        align-items: center; 
+        gap: 10px;
+        padding: 10px 20px;
+    }
+  
+    .menu {
+      flex-direction: row;
+      gap: 10px;
+      font-size: 16px;
+    }
+
+    .logo img {
+        height: 50px; /* Logo más pequeño en móvil */
+      }
+
+  }
+
+
+
+  .menu a {
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;
+    transition: color 0.3s;
+  }
+
+  .menu a.active {
+    color: red;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .cuad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 40px;
+}
+
+@media (max-width: 1200px) {
+  .cuad {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .cuad {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: 250px;
+  object-fit: contain;   /* mantiene proporción sin recortar */
+  background-color: white; /* color de fondo detrás de PNG transparente */
+  padding: 15px;          /* opcional: da aire a los íconos PNG */
+  display: block;
+}
+
+
+.card-content {
+  padding: 15px;
+  text-align: center;
+}
+
+.title-gradient {
+  font-size: 1.1em;
+  background: linear-gradient(90deg, #00f0ff, #ff00d4, #00f0ff);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradient-move 5s ease infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes gradient-move {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.card-toggle {
+  display: block;       /* Ocupa todo el ancho disponible */
+  width: 100%;
+  font-size: 1.5em;
+  text-align: center;   /* Centra la flecha */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 15px 0;      /* Amplía la zona clickeable */
+  transition: transform 0.3s ease;
+}
+
+
+.card-toggle.jump {
+  animation: jump 0.5s;
+}
+
+@keyframes jump {
+  0% { transform: rotate(0deg) translateY(0); }
+  25% { transform: rotate(20deg) translateY(-5px); }
+  50% { transform: rotate(-20deg) translateY(-5px); }
+  75% { transform: rotate(20deg) translateY(-5px); }
+  100% { transform: rotate(0deg) translateY(0); }
+}
+
+.card-text {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, margin 0.5s ease;
+  margin: 0;
+}
+
+.card-text.open {
+  max-height: 150px;
+  margin-top: 10px;
+}
+
+
+
+
+
+
+  .footer {
+    width: 100%;
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+
+/* Adaptativo para pantallas pequeñas */
+@media (max-width: 600px) {
+    .footer {
+     
+        font-size: 14px;
+        padding: 20px 0;
+        width: 100vw;       /* 100% del viewport real */
+    max-width: 100vw;
+    
+    margin-top: 20px;
+       
+    }
+}
+
+
+
+  

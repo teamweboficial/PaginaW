@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      background-color: #1e1e1e;
+      color: white;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* ---------------- TOP BAR ---------------- */
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #1e1e1e;
+      padding: 10px 20px;
+      flex-wrap: wrap;
+    }
+
+    .top-bar * {
+      color: white;
+    }
+
+    .left-section {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex: 1;
+    }
+
+    .hamburger {
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .menu-list {
+      position: absolute;
+      top: 50px;
+      left: 10px;
+      background-color: #2a2a2a;
+      padding: 10px;
+      border-radius: 5px;
+      display: none;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .menu-list a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .menu-list a:hover {
+      text-decoration: underline;
+    }
+
+    .trending {
+      font-weight: bold;
+    }
+
+    .ticker {
+      overflow: hidden;
+      width: 300px;
+      height: 20px;
+      position: relative;
+    }
+
+    .ticker-item {
+      position: absolute;
+      opacity: 0;
+      transition: opacity 0.5s;
+      cursor: pointer;
+    }
+
+    .ticker-item.active {
+      opacity: 1;
+    }
+
+    .right-section {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-icons a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      background: #333;
+      padding: 8px 10px;
+      border-radius: 5px;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.1);
+    }
+
+    .social-icons a.facebook:hover { background-color: #1877f2; }
+    .social-icons a.twitter:hover { background-color: #000; }
+    .social-icons a.youtube:hover { background-color: #ff0000; }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: #333;
+      padding: 6px 10px;
+      border-radius: 5px;
+    }
+
+    .search-box input {
+      border: none;
+      background: transparent;
+      color: white;
+      outline: none;
+      padding: 4px;
+    }
+
+    .search-box input::placeholder {
+      color: white;
+      opacity: 0.8;
+    }
+
+    .search-box button {
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    @media (max-width: 768px) {
+      .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .ticker {
+        width: 100%;
+      }
+
+      .right-section {
+        flex-wrap: wrap;
+      }
+    }
+
+    /* ---------------- HEADER MENU ---------------- */
+    .main-header {
+      width: 100%;
+      background-color: #3a3a3a;
+      padding: 10px 20px;
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo-title img {
+      height: 70px;
+    }
+
+    nav.menu {
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    .menu-item {
+      position: relative;
+    }
+
+    .menu-item > a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 5px;
+      display: inline-block;
+    }
+
+    .menu-item > a:hover {
+      text-decoration: underline;
+    }
+
+    .submenu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #2a2a2a;
+      border-radius: 8px;
+      min-width: 200px;
+      padding: 12px 16px;
+      opacity: 0;
+      transform: translateY(10px);
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+      z-index: 10;
+      display: none;
+    }
+
+    .submenu a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 0;
+      display: block;
+      font-size: 16px;
+      transition: color 0.3s, background-color 0.2s;
+      border-radius: 4px;
+    }
+
+    .submenu a:hover {
+      color: #ffcc00;
+      background-color: #3a3a3a;
+    }
+
+    .menu-item:hover .submenu {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      nav.menu {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .submenu {
+        position: static;
+        margin-top: 5px;
+        width: 100%;
+      }
+    }
+
+    /* ---------------- CONTACTO ---------------- */
+    .contact-section {
+      background-color: #1e1e1e;
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      flex: 1;
+    }
+
+    .contact-section h2 {
+      font-size: 2.5rem;
+      color: #f1c40f;
+      margin-bottom: 40px;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 15px;
+      background-color: #2a2a2a;
+      border: none;
+      color: white;
+      font-size: 1rem;
+      border-radius: 6px;
+      resize: vertical;
+      outline: none;
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: #aaa;
+    }
+
+    .contact-form button {
+      padding: 15px;
+      background-color: #f1c40f;
+      border: none;
+      color: #1e1e1e;
+      font-weight: bold;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .contact-form button:hover {
+      background-color: #e2b607;
+    }
+
+    @media (max-width: 600px) {
+      .contact-section h2 {
+        font-size: 2rem;
+      }
+
+      .contact-form {
+        width: 100%;
+      }
+    }
+
+    /* ---------------- FOOTER ---------------- */
+    .footer {
+      width: 100%;
+      background-color: #222;
+      color: #fff;
+      text-align: center;
+      font-size: 16px;
+      padding: 20px 0;
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+
+    <!-- 🔼 TOP BAR -->
+    <div class="top-bar">
+      <div class="left-section">
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <div class="menu-list" id="menu">
+      <a href="../index.html">Inicio</a>
+      <a href="../foro/index.html">Foro</a>
+      <a href="../contactanos/index.html">Contacto</a>
+    </div>
+        <div class="trending">TRENDING:</div>
+        <div class="ticker" id="ticker">
+          <div class="ticker-item active" onclick="location.href='https://ejemplo.com/noticia1'">Conoce las nuevas actualizaciones</div>
+      <div class="ticker-item" onclick="location.href='https://ejemplo.com/noticia2'">AMD superá en ingresos a intel</div>
+      <div class="ticker-item" onclick="location.href='https://ejemplo.com/noticia3'">La caída en precios de las gráficas</div>
+        </div>
+      </div>
+
+      <div class="right-section">
+        <div class="social-icons">
+          <a href="https://facebook.com" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://x.com" target="_blank" class="twitter"><i class="fab fa-x-twitter"></i></a>
+          <a href="https://youtube.com" target="_blank" class="youtube"><i class="fab fa-youtube"></i></a>
+        </div>
+        <div class="search-box">
+          <input type="text" placeholder="SEARCH" />
+          <button><i class="fas fa-search"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🔼 HEADER MENU -->
+    <section class="main-header">
+      <section class="header-container">
+        <section class="logo-title">
+          <img src="img/t3.png" alt="Logo" />
+        </section>
+
+        <nav class="menu">
+          <section class="menu-item">
+            <a href="#">VIDEOS ▾</a>
+            <section class="submenu">
+              <a href="#">Últimos Videos</a>
+              <a href="#">Reseñas</a>
+              <a href="#">Especiales</a>
+            </section>
+          </section>
+          <section class="menu-item">
+            <a href="#">NOTICIAS ▾</a>
+            <section class="submenu">
+              <a href="#">Actualizaciones</a>
+              <a href="#">Eventos</a>
+              <a href="#">Industria</a>
+            </section>
+          </section>
+          <section class="menu-item"><a href="../foro/index.html">FORO</a></section>
+          <section class="menu-item"><a href="../faq/index.html">FAQ</a></section>
+          <section class="menu-item"><a href="index.html">CONTACTO</a></section>
+        </nav>
+      </section>
+    </section>
+
+    <!-- 🔽 CONTACTO -->
+    <section class="contact-section">
+      <h2>Contáctanos</h2>
+      <form class="contact-form" action="#" method="post">
+        <input type="text" name="nombre" placeholder="Tu nombre" required />
+        <input type="email" name="correo" placeholder="Tu correo" required />
+        <textarea name="mensaje" placeholder="Escribe tu mensaje" required></textarea>
+        <button type="submit">Enviar mensaje</button>
+      </form>
+    </section>
+
+    <!-- 🔽 FOOTER -->
+    <section class="footer">
+      <p>© Team Web. Todos los derechos reservados.</p>
+    </section>
+
+  </div>
+
+  <script>
+    const menu = document.getElementById("menu");
+
+    function toggleMenu() {
+      menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+    }
+
+    // Ticker automático
+    const items = document.querySelectorAll(".ticker-item");
+    let currentIndex = 0;
+
+    function rotateTicker() {
+      items.forEach((item, i) => {
+        item.classList.toggle("active", i === currentIndex);
+      });
+      currentIndex = (currentIndex + 1) % items.length;
+    }
+
+    setInterval(rotateTicker, 4000);
+  </script>
+    
+</body>
+</html>

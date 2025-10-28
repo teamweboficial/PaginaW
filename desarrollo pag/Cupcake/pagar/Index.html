@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <section class="header">
+  <div class="logo"><img src="img/cup4.png" width="auto" height="100px" alt=""></div>
+
+  <!-- Cambiado id de 'hamburger' a 'menuBtn' -->
+  <div class="hamburger" id="menuBtn">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <nav class="menu" id="menu">
+    <a href="../index.html">Inicio</a>
+    <a href="../productos/Index.html">Productos</a>
+    <a href="../contacto/index.html">Contáctanos</a>
+    <a href="Index.html">Pagar</a>
+  </nav>
+</section>
+
+
+
+<!-- HTML de la página de pago -->
+<div id="productos-pago">
+  <!-- Aquí se insertan los productos -->
+</div>
+
+<section class="total" id="total-pago">Total a pagar: $0.00</section>
+
+<section>
+  <form class="envio" id="form-envio">
+    <h2>Datos de envío</h2>
+    <label for="nombre">Nombre completo</label>
+    <input type="text" id="nombre" required />
+    
+    <label for="direccion">Dirección</label>
+    <textarea id="direccion" required></textarea>
+    
+    <label for="telefono">Teléfono</label>
+    <input type="tel" id="telefono" required />
+    
+    <label for="notas">Notas adicionales</label>
+    <textarea id="notas"></textarea>
+    
+    <button type="submit">Finalizar compra</button>
+  </form>
+</section>
+
+
+
+<section class="footer">
+        <p>© </span> Team Web. Todos los derechos reservados.</p>
+      </section>
+
+
+<script>
+
+    const menuBtn = document.getElementById('menuBtn');
+  const menu = document.getElementById('menu');
+
+  menuBtn.addEventListener('click', () => {
+    menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+  });
+
+  // Cierra el menú si haces clic fuera (solo en móvil)
+  document.addEventListener('click', function(e) {
+    if (!menu.contains(e.target) && !menuBtn.contains(e.target)) {
+      if (window.innerWidth < 768) {
+        menu.style.display = 'none';
+      }
+    }
+  });
+
+  // Al cambiar tamaño de ventana, ajusta el menú correctamente
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768) {
+      menu.style.display = 'flex';
+    } else {
+      menu.style.display = 'none';
+    }
+  });
+
+  // Inicializa el estado correcto al cargar
+  window.addEventListener('load', () => {
+    if (window.innerWidth >= 768) {
+      menu.style.display = 'flex';
+    } else {
+      menu.style.display = 'none';
+    }
+  });
+</script>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    const contenedor = document.getElementById("productos-pago");
+    const totalElemento = document.getElementById("total-pago");
+
+    function renderCarrito() {
+      contenedor.innerHTML = "";
+      let total = 0;
+
+      carrito.forEach((producto, index) => {
+        const precioUnitario = parseFloat(producto.precio.replace('$', ''));
+        const subtotal = precioUnitario * producto.cantidad;
+        total += subtotal;
+
+        // Usamos la ruta directamente sin "../" porque img está dentro de "pagar"
+        const rutaImagen = producto.img;
+
+        const productoHTML = document.createElement("section");
+        productoHTML.className = "producto";
+        productoHTML.innerHTML = `
+          <img src="${rutaImagen}" alt="${producto.texto}">
+          <div class="detalles">
+            <h2>${producto.texto}</h2>
+            <p>Precio: ${producto.precio}</p>
+            <div class="cantidad">
+              <button onclick="cambiarCantidad(${index}, -1)">-</button>
+              <span>${producto.cantidad}</span>
+              <button onclick="cambiarCantidad(${index}, 1)">+</button>
+            </div>
+          </div>
+        `;
+
+        contenedor.appendChild(productoHTML);
+      });
+
+      totalElemento.textContent = `Total a pagar: $${total.toFixed(2)}`;
+    }
+
+    window.cambiarCantidad = (index, cambio) => {
+      carrito[index].cantidad += cambio;
+      if (carrito[index].cantidad <= 0) {
+        carrito.splice(index, 1);
+      }
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+      renderCarrito();
+    };
+
+    renderCarrito();
+  });
+</script>
+
+
+
+
+ <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+
+<!-- 🔝 Barra superior con trending, redes y buscador -->
+<div class="top-bar">
+  <!-- IZQUIERDA -->
+  <div class="left-section">
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <div class="menu-list" id="menu">
+      <a href="index.html">Inicio</a>
+      <a href="foro/index.html">Foro</a>
+      <a href="contactanos/index.html">Contacto</a>
+    </div>
+    <div class="trending">TRENDING:</div>
+    <div class="ticker" id="ticker">
+      <div class="ticker-item active" onclick="location.href='https://ejemplo.com/noticia1'">Conoce las nuevas actualizaciones</div>
+      <div class="ticker-item" onclick="location.href='https://ejemplo.com/noticia2'">AMD superá en ingresos a intel</div>
+      <div class="ticker-item" onclick="location.href='https://ejemplo.com/noticia3'">La caída en precios de las gráficas</div>
+    </div>
+  </div>
+
+  <!-- DERECHA -->
+  <div class="right-section">
+    <div class="social-icons">
+      <a href="https://facebook.com" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://x.com" target="_blank" class="twitter"><i class="fab fa-x-twitter"></i></a>
+      <a href="https://youtube.com" target="_blank" class="youtube"><i class="fab fa-youtube"></i></a>
+    </div>
+    <div class="search-box">
+      <input type="text" placeholder="SEARCH" />
+      <button><i class="fas fa-search"></i></button>
+    </div>
+  </div>
+</div>
+
+<!-- 🔻 Menú horizontal debajo de la barra -->
+<section class="main-header">
+  <section class="header-container">
+    <!-- Logo y título -->
+    <section class="logo-title">
+      <img src="img/t3.png" alt="Logo" />
+    </section>
+
+    <!-- Menú -->
+    <nav class="menu">
+      <section class="menu-item">
+        <a href="#">VIDEOS ▾</a>
+        <section class="submenu">
+          <a href="#">Últimos Videos</a>
+          <a href="#">Reseñas</a>
+          <a href="#">Especiales</a>
+        </section>
+      </section>
+
+      <section class="menu-item">
+        <a href="#">NOTICIAS ▾</a>
+        <section class="submenu">
+          <a href="#">Actualizaciones</a>
+          <a href="#">Eventos</a>
+          <a href="#">Industria</a>
+        </section>
+      </section>
+
+      <section class="menu-item"><a href="foro/index.html">FORO</a></section>
+      <section class="menu-item"><a href="faq/index.html">FAQ</a></section>
+      <section class="menu-item"><a href="contactanos/index.html">CONTACTO</a></section>
+    </nav>
+  </section>
+</section>
+
+
+
+
+
+
+
+
+
+
+<section class="main-content">
+  <!-- SLIDER -->
+  <section class="slider-container">
+    <button class="arrow left" onclick="prevSlide()">❮</button>
+    <button class="arrow right" onclick="nextSlide()">❯</button>
+    
+    <div class="slider" id="slider">
+      <div class="slide"><img src="img/fo.png" alt="Slide 1"></div>
+      <div class="slide"><img src="img/fo3.png" alt="Slide 2"></div>
+      <div class="slide"><img src="img/fo2.png" alt="Slide 3"></div>
+      <div class="slide"><img src="img/ult.png" alt="Slide 4"></div>
+    </div>
+
+    <div class="dots" id="dots"></div>
+  </section>
+
+  <!-- PUBLICIDAD -->
+  <aside class="sidebar">
+  <div class="box one-box">
+    <h3>Apoya a la página</h3>
+    <img src="img/pa.jpg" alt="Patreon">
+    <img src="img/pay.jpg" alt="">
+  </div>
+</aside>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="noticias-wrapper">
+  <section class="noticias-section">
+    <!-- Imagen izquierda -->
+    <div class="noticia-imagen">
+      <img src="img/bors.jpg" alt="Noticia destacada">
+      <div class="texto-superpuesto"><a href="">Tras su lanzamiento en PC, Stellar Blade vendió un millón de copias en solo 3 días. Con PS5 incluido, lleva ya más de 3 millones de unidades vendidas.</a>
+        
+      </div>
+    </div>
+
+    <!-- Noticias más comentadas -->
+    <div id=" #noticias" class="noticias-comentadas">
+      <h2>LAS NOTICIAS MÁS COMENTADAS</h2>
+
+      <div class="noticia-item">
+        <div class="comentario-icono">120</div>
+        <div class="noticia-texto">Steam removió el juego BlockBlasters luego de que se descubriera que incluía malware tipo cryptostealer (robo de criptomonedas) que habría robado más de US$150,000 a jugadores. 
+</div>
+      </div>
+
+      <div class="noticia-item">
+        <div class="comentario-icono">112</div>
+        <div class="noticia-texto">Microsoft sube el precio de las consolas Xbox en EE.UU. nuevamente
+</div>
+      </div>
+
+      <div class="noticia-item">
+        <div class="comentario-icono">99</div>
+        <div class="noticia-texto">Hollow Knight: Silksong tuvo un lanzamiento tan demandado que la demanda colapsó algunas tiendas digitales como Steam, la eShop de Nintendo y la tienda de PS5. 
+</div>
+      </div>
+
+      <div class="noticia-item">
+        <div class="comentario-icono">85</div>
+        <div class="noticia-texto">Palworld 1.0 se programa para 2026, pese al pleito con Nintendo
+Pocketpair, el desarrollador de Palworld, confirmó que la versión 1.0 del juego saldrá en 2026. 
+GamesRadar+
+
+</div>
+      </div>
+
+      <div class="noticia-item">
+        <div class="comentario-icono">83</div>
+        <div class="noticia-texto">"Es ridículo". Una actriz de Dragon Age The Veilguard no entiende por qué hay jugadores que criticaban el juego antes del lanzamiento cuando claramente el juego es decadente en toda regla.</div>
+      </div>
+    </div>
+  </section>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="cuadro-container">
+  <!-- MENÚ SUPERIOR -->
+  <section class="menu-superior">
+    <button class="menu-btn active" onclick="mostrarSeccion(0)">Sección 1</button>
+    <button class="menu-btn" onclick="mostrarSeccion(1)">Sección 2</button>
+    <button class="menu-btn" onclick="mostrarSeccion(2)">Sección 3</button>
+    <button class="menu-btn" onclick="mostrarSeccion(3)">Sección 4</button>
+  </section>
+
+  <!-- CONTENIDO: Sección 1 -->
+  <section class="seccion-contenido active">
+    <section class="imagen-principal">
+      <a href="https://ejemplo.com/principal1" target="_blank">
+        <img src="img/intel.png" alt="Principal 1">
+        <div class="texto-superpuesto">Descubre las gráficas de intel arc</div>
+      </a>
+    </section>
+    <div class="linea-lateral"></div>
+    <section class="lista-items">
+      <section class="item-horizontal">
+        <a href="https://ejemplo.com/item1a" target="_blank">
+          <img src="img/i1.jpg" alt="">
+          <p>¿Vale la pena la Gráfica Sparkle Eco Intel Arc A310 ? </p>
+        </a>
+      </section>
+      <section class="item-horizontal">
+        <a href="https://ejemplo.com/item1b" target="_blank">
+          <img src="img/i2.jpg" alt="">
+          <p>Conoce todo sobre la Gráfica Sparkle Genie Intel Arc A380</p>
+        </a>
+      </section>
+      <section class="item-horizontal">
+        <a href="https://ejemplo.com/item1c" target="_blank">
+          <img src="img/i3.jpg" alt="">
+          <p>Mira las mejores especificaciones de la Gráfica Sparkle Intel Arc A750 ORC OC Edition</p>
+        </a>
+      </section>
+      <section class="item-horizontal">
+        <a href="https://ejemplo.com/item1d" target="_blank">
+          <img src="img/i4.jpg" alt="">
+          <p>¿La Gráfica Sparkle ROC OC Edition Intel Arc A770  es la mas potente de su línea?</p>
+        </a>
+      </section>
+    </section>
+  </section>
+
+  <!-- CONTENIDO: Sección 2 -->
+  <section class="seccion-contenido">
+    <section class="imagen-principal">
+      <a href="https://ejemplo.com/principal2" target="_blank">
+        <img src="img/amd.jpg" alt="Principal 2">
+        <div class="texto-superpuesto">Conoce todo sobre las gráficas de Amd</div>
+      </a>
+    </section>
+    <div class="linea-lateral"></div>
+    <section class="lista-items">
+      <section class="item-horizontal"><a href="#"><img src="img/a6.jpg"><p>¿La radeon rx6900xt aún vale la pena?</p></a></section>
+      <section class="item-horizontal"><a href="#"><img src="img/a7.jpeg"><p>Conoce todo sobre la radeon rx7900xt</p></a></section>
+      <section class="item-horizontal"><a href="#"><img src="img/a8.jpg"><p>¿La radeon rx8800xt es la mejor del mercado?</p></a></section>
+      <section class="item-horizontal"><a href="#"><img src="img/a9.jpg"><p>Descubre la potencia de la radeon rx9070xt</p></a></section>
+    </section>
+  </section>
+
+
+   <section class="seccion-contenido">
+    <section class="imagen-principal">
+      <a href="https://ejemplo.com/principal2" target="_blank">
+        <img src="img/nvidia.jpg" alt="Principal 2">
+        <div class="texto-superpuesto">Conoce sobre las mejores gráficas de nvidia</div>
+      </a>
+    </section>
+    <div class="linea-lateral"></div>
+    <section class="lista-items">
+      <section class="item-horizontal"><a href="#"><img src="img/2080.jpg"><p>¿La rtx 2080 aún es buena?</p></a></section>
+      <section class="item-horizontal"><a href="#"><img src="img/3090.jpg"><p>La rtx 3090 aún vale la pena en este año</p></a></section>
+      <section class="item-horizontal"><a href="#"><img src="img/4090.jpg"><p>La rtx 4090 aún sigue liderando el mercado</p></a></section>
+      <section class="item-horizontal"><a href="#"><img src="img/5090.jpg"><p>¿Vale la pena el cambio a la rtx 5090?</p></a></section>
+    </section>
+  </section>
+
+
+
+   <section class="seccion-contenido">
+    <section class="imagen-principal">
+      <a href="https://ejemplo.com/principal2" target="_blank">
+        <img src="img/apple.png" alt="Principal 2">
+        <div class="texto-superpuesto">¿Los gráficos integrados de las mac valen la pena?</div>
+      </a>
+    </section>
+    <div class="linea-lateral"></div>
+    <section class="lista-items">
+      <section class="item-horizontal"><a href="#"><img src="img/m1.jpg"><p>Descubre toda la potencia de los M1 de apple</p></a></section>
+      <section class="item-horizontal"><a href="#"><img src="img/m2.jpeg"><p>¿Realmente es bueno el chip m1 pro de apple?</p></a></section>
+      <section class="item-horizontal"><a href="#"><img src="img/m3.jpg"><p>¿Es el m1 max tan potente?</p></a></section>
+      <section class="item-horizontal"><a href="#"><img src="img/m4.jpg"><p>¿Vale la pena el m1 ultra?</p></a></section>
+    </section>
+  </section>
+
+  <!-- CONTENIDO: Sección 3 y 4 puedes copiar igual que las anteriores -->
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="destacados-container">
+  <h2 class="destacados-title">Destacados</h2>
+
+  <section class="destacados-grid">
+    <!-- Cuadro 1 -->
+    <section class="cuadro">
+      <a href="https://ejemplo.com/1" target="_blank">
+        <img src="img/snap.png" alt="Imagen 1">
+        <div class="texto-inferior color1">Conoce todo sobre los procesadores</div>
+      </a>
+    </section>
+
+    <!-- Cuadro 2 -->
+    <section class="cuadro">
+      <a href="https://ejemplo.com/2" target="_blank">
+        <img src="img/ki.png" alt="Imagen 2">
+        <div class="texto-inferior color2">Los kirin de Huawei están que arden</div>
+      </a>
+    </section>
+
+    <!-- Cuadro 3 -->
+    <section class="cuadro">
+      <a href="https://ejemplo.com/3" target="_blank">
+        <img src="img/exyn.png" alt="Imagen 3">
+        <div class="texto-inferior color3">¿El procesador Exynos de samung vale la pena?</div>
+      </a>
+    </section>
+
+    <!-- Cuadro 4 -->
+    <section class="cuadro">
+      <a href="https://ejemplo.com/4" target="_blank">
+        <img src="img/he.jpg" alt="Imagen 4">
+        <div class="texto-inferior color4">¿Es realmente bueno los Helio de MediaTek?</div>
+      </a>
+    </section>
+
+    <!-- Segunda fila -->
+    <section class="cuadro">
+      <a href="https://ejemplo.com/5" target="_blank">
+        <img src="img/media.jpeg" alt="Imagen 5">
+        <div class="texto-inferior color5">¿Es bueno el procesador de MediaTek?</div>
+      </a>
+    </section>
+
+    <section class="cuadro">
+      <a href="https://ejemplo.com/6" target="_blank">
+        <img src="img/aa.jpg" alt="Imagen 6">
+        <div class="texto-inferior color6">¿Los procesadores de la serie A de apple eran mejores antes?</div>
+      </a>
+    </section>
+
+    <section class="cuadro">
+      <a href="https://ejemplo.com/7" target="_blank">
+        <img src="img/ag.jpg" alt="Imagen 7">
+        <div class="texto-inferior color7">Android y Apple en este 2026 serán iguales y no permitiran instalar aplicaciones externas</div>
+      </a>
+    </section>
+
+    <section class="cuadro">
+      <a href="https://ejemplo.com/8" target="_blank">
+        <img src="img/apli.jpg" alt="Imagen 8">
+        <div class="texto-inferior color8">¿Cuales son las mejores aplicaciones para chatear?</div>
+      </a>
+    </section>
+  </section>
+</section>
+
+
+
+
+
+
+ <section class="footer">
+        <p>© </span> Team Web. Todos los derechos reservados.</p>
+      </section>
+
+
+
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  
+
+
+
+
+
+
+
+
+  <script src="script/script.js"></script>
+    
+</body>
+</html>
